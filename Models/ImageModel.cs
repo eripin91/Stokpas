@@ -8,6 +8,7 @@ namespace Stokpas.Models
 {
     public class ImageModel
     {
+        [Key]
         public int image_id { get; set; }
 
         [Required]

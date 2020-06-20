@@ -8,6 +8,7 @@ namespace Stokpas.Models
 {
     public class AttributeModel
     {
+        [Key]
         public int attribute_id { get; set; }
 
         [Required]

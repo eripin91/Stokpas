@@ -8,6 +8,7 @@ namespace Stokpas.Models
 {
     public class TierVariantModel
     {
+        [Key]
         public int tier_variant_id { get; set; }
 
         [Required]

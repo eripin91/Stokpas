@@ -8,6 +8,7 @@ namespace Stokpas.Models
 {
     public class ShCategoryModel
     {
+        [Key]
         public int sh_category_id { get; set; }
         public int parent_id { get; set; } = 0;
 

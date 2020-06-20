@@ -8,6 +8,7 @@ namespace Stokpas.Models
 {
     public class WholesaleModel
     {
+        [Key]
         public int wholesale_id { get; set; }
         public int min { get; set; }
         public int max { get; set; }

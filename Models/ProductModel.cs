@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Stokpas.Models
 {
-    public class productModel
+    public class ProductModel
     {
+        [Key]
         public int product_id { get; set; }
         [Required]
         public int shop_id { get; set; }

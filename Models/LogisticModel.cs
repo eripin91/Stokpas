@@ -8,6 +8,7 @@ namespace Stokpas.Models
 {
     public class LogisticModel
     {
+        [Key]
         public int logistic_id { get; set; }
 
         [Required]

@@ -8,6 +8,7 @@ namespace Stokpas.Models
 {
     public class VariantOptionModel
     {
+        [Key]
         public int variant_option_id { get; set; }
 
         [Required]

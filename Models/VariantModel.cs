@@ -8,9 +8,9 @@ namespace Stokpas.Models
 {
     public class VariantModel
     {
+        [Key]
         public int variant_id { get; set; }
-
-        public productModel product { get; set; }
+        public ProductModel product { get; set; }
         public float price { get; set; }
         public int stock { get; set; }
         public int status { get; set; }

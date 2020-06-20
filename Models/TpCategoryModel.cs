@@ -8,6 +8,7 @@ namespace Stokpas.Models
 {
     public class TpCategoryModel
     {
+        [Key]
         public int tp_category_id { get; set; }
         public int parent_id { get; set; } = 0;
 
