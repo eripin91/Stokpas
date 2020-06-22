@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stokpas.Models
 {
-    public class WholesaleModel
+    public class Wholesales
     {
         [Key]
         public int wholesale_id { get; set; }

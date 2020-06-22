@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Stokpas.Models
 {
-    public class ImageModel
+    public class TierVariants
     {
         [Key]
-        public int image_id { get; set; }
+        public int tier_variant_id { get; set; }
 
         [Required]
-        public string image_file_path { get; set; }
-        public string image_file_name { get; set; }
-        public string image_description { get; set; }
+        public string tier_variant_name { get; set; }
+        public int position { get; set; }
+        public ICollection<VariantOptions> options { get; set; }
         public string request_id { get; set; }
     }
 }

@@ -10,10 +10,9 @@ namespace Stokpas.Models
     {
         [Key]
         public int variant_id { get; set; }
-        public ProductModel product { get; set; }
         public float price { get; set; }
         public int stock { get; set; }
-        public int status { get; set; }
+        public int status { get; set; } = 1;
         public string variant_sku { get; set; }
         public string internal_tier_index { get; set; }
         public double[] tier_index

@@ -14,6 +14,11 @@ namespace Stokpas.Data
         {
         }
 
-        public DbSet<ProductModel> Product { get; set; }
+        public DbSet<Products> Product { get; set; }
+        public DbSet<Images> Images { get; set; }
+        public DbSet<Logistics> Logistics { get; set; }
+        public DbSet<Wholesales> Wholesales{ get; set; }
+        public DbSet<TpCategorys> TpCategorys { get; set; }
+        public DbSet<ShCategorys> ShCategorys { get; set; }
     }
 }

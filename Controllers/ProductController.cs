@@ -22,7 +22,9 @@ namespace Stokpas.Controllers
         // GET: Product
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Product.ToListAsync());
+            return View(await _context.Product
+                .Include(s=>s.images)
+                .ToListAsync());
         }
 
         // GET: Product/Details/5
@@ -34,6 +36,11 @@ namespace Stokpas.Controllers
             }
 
             var productModel = await _context.Product
+                .Include(s => s.images)
+                .Include(s => s.logistics)
+                .Include(s => s.wholesales)
+                .Include(s => s.tp_category)
+                .Include(s => s.sh_category)
                 .FirstOrDefaultAsync(m => m.product_id == id);
             if (productModel == null)
             {
@@ -54,7 +61,7 @@ namespace Stokpas.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("product_id,shop_id,product_url,status,product_sku,product_name,product_description,product_short_description,min_order,etalase,is_must_insurance,is_free_return,is_eligible_cod,currency,condition,has_variation,price,original_price,stock,weight,weight_unit,timestamp,rating_star,comment_count,review_count,transaction_success,transaction_reject,sales,view,like,package_length,package_width,package_height,is_pre_order,days_to_ship,discount_id,warning,created_on,created_by,modified_on,modified_by,request_id")] ProductModel productModel)
+        public async Task<IActionResult> Create([Bind("product_id,shop_id,product_url,status,product_sku,product_name,product_description,product_short_description,min_order,etalase,is_must_insurance,is_free_return,is_eligible_cod,currency,condition,has_variation,price,original_price,stock,weight,weight_unit,timestamp,rating_star,comment_count,review_count,transaction_success,transaction_reject,sales,view,like,package_length,package_width,package_height,is_pre_order,days_to_ship,discount_id,warning,created_on,created_by,modified_on,modified_by,request_id")] Products productModel)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +93,7 @@ namespace Stokpas.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("product_id,shop_id,product_url,status,product_sku,product_name,product_description,product_short_description,min_order,etalase,is_must_insurance,is_free_return,is_eligible_cod,currency,condition,has_variation,price,original_price,stock,weight,weight_unit,timestamp,rating_star,comment_count,review_count,transaction_success,transaction_reject,sales,view,like,package_length,package_width,package_height,is_pre_order,days_to_ship,discount_id,warning,created_on,created_by,modified_on,modified_by,request_id")] ProductModel productModel)
+        public async Task<IActionResult> Edit(int id, [Bind("product_id,shop_id,product_url,status,product_sku,product_name,product_description,product_short_description,min_order,etalase,is_must_insurance,is_free_return,is_eligible_cod,currency,condition,has_variation,price,original_price,stock,weight,weight_unit,timestamp,rating_star,comment_count,review_count,transaction_success,transaction_reject,sales,view,like,package_length,package_width,package_height,is_pre_order,days_to_ship,discount_id,warning,created_on,created_by,modified_on,modified_by,request_id")] Products productModel)
         {
             if (id != productModel.product_id)
             {

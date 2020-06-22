@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Stokpas.Models
 {
-    public class TpCategoryModel
+    public class Warehouses
     {
         [Key]
-        public int tp_category_id { get; set; }
-        public int parent_id { get; set; } = 0;
+        public int warehouse_id { get; set; }
+        public float price { get; set; }
+        public int stock { get; set; }
 
-        [Required]
-        public string category_name { get; set; }
     }
 }

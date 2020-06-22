@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Stokpas.Models
 {
-    public class ShCategoryModel
+    public class TpCategorys
     {
         [Key]
-        public int sh_category_id { get; set; }
+        public int tp_category_id { get; set; }
         public int parent_id { get; set; } = 0;
 
         [Required]
         public string category_name { get; set; }
-        public bool has_children { get; set; } = false;
-        public string request_id { get; set; }
+
+        public virtual TpProducts product { get; set; }
     }
 }

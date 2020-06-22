@@ -40,8 +40,8 @@ namespace Stokpas
             services.AddRazorPages();
 
             services.AddDbContext<StokpasContext>(options =>
-            //options.UseNpgsql(Configuration.GetConnectionString("PinContext")));
-            options.UseInMemoryDatabase(databaseName: "StokpasContext"));
+            options.UseNpgsql(Configuration.GetConnectionString("StokpasContext")));
+            //options.UseInMemoryDatabase(databaseName: "StokpasContext"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

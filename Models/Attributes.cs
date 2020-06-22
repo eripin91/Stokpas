@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stokpas.Models
 {
-    public class AttributeModel
+    public class Attributes
     {
         [Key]
         public int attribute_id { get; set; }
