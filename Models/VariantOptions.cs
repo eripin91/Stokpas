@@ -15,6 +15,5 @@ namespace Stokpas.Models
         public string variant_option_name { get; set; }
         public string url { get; set; }
         public string hex { get; set; }
-        public string request_id { get; set; }
     }
 }

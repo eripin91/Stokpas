@@ -37,15 +37,15 @@ namespace Stokpas.Models
         public int transaction_success { get; set; }
         public int transaction_reject { get; set; }
 
-        [Required]
-        public ICollection<Images> images { get; set; }
-        public ICollection<Warehouses> warehouses { get; set; }
-        //video
-        [Required]
-        public virtual TpCategorys category { get; set; }
+        
         public DateTime created_on { get; set; }
         public string created_by { get; set; }
         public DateTime modified_on { get; set; }
         public string modified_by { get; set; }
+
+        [Required]
+        public ICollection<Images> images { get; set; }
+        public ICollection<Warehouses> warehouses { get; set; }
+        public virtual TpCategorys tp_category { get; set; }
     }
 }

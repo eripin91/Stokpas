@@ -10,16 +10,6 @@ namespace Stokpas.Models
     {
         [Key]
         public int product_id { get; set; }
-
-        public int tp_shop_id { get; set; }
-        public int sh_shop_id { get; set; }
-        public string tp_product_url { get; set; }
-        public string sh_product_url { get; set; }
-
-        [Display(Name = "Status")]
-        public int tp_status { get; set; } = 1;
-        public int sh_status { get; set; } = 1;
-
         [Display(Name = "SKU")]
         public int product_sku { get; set; }
 
@@ -55,8 +45,14 @@ namespace Stokpas.Models
 
         [Display(Name = "Dilihat")]
         public int view { get; set; }
-        public int like { get; set; }
         public int days_to_ship { get; set; }
+        
+        [Display(Name = "Tanggal posting")]
+        public DateTime created_on { get; set; }
+        public string created_by { get; set; }
+        public DateTime modified_on { get; set; }
+        public string modified_by { get; set; }
+
         public ICollection<Wholesales> wholesales { get; set; }
 
         [Display(Name = "Gambar")]
@@ -64,11 +60,7 @@ namespace Stokpas.Models
         public ICollection<Images> images { get; set; }
         public ICollection<TierVariants> tier_variant { get; set; }
         public ICollection<VariantModel> variant { get; set; }
-
-        [Display(Name = "Tanggal posting")]
-        public DateTime created_on { get; set; }
-        public string created_by { get; set; }
-        public DateTime modified_on { get; set; }
-        public string modified_by { get; set; }
+        public virtual TpProducts tp_product { get; set; }
+        public virtual ShProducts sh_product { get; set; }
     }
 }

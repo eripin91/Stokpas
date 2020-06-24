@@ -18,51 +18,26 @@ namespace Stokpas.Models
                     DbContextOptions<StokpasContext>>()))
             {
                 // Look for any movies.
-                if (context.Product.Any())
-                {
-                    //var all = context.Product.Include(s => s.images)
-                    //.Include(s => s.logistics)
-                    //.Include(s => s.wholesales)
-                    //.Include(s => s.tp_category)
-                    //.Include(s => s.sh_category);
-                    //context.Product.RemoveRange(all);
-                    //context.Logistics.RemoveRange(context.Logistics);
-                    //context.Wholesales.RemoveRange(context.Wholesales);
-                    //context.TpCategorys.RemoveRange(context.TpCategorys);
-                    //context.ShCategorys.RemoveRange(context.ShCategorys);
-                    //context.SaveChanges();
+                if (context.Products.Any())
+                {                    
 
                     return;   // DB has been seeded
                 }
 
-                context.Product.AddRange(
+                context.Products.AddRange(
                     new Products
-                    {
-                        shop_id = 2312312,
-                        product_url = "abc.com",
-                        status = 1,
+                    {                        
                         product_sku = 1231,
                         product_name = "kemoceng",
                         product_description = "<p>Kode Listing pinrumah.com :&nbsp;<strong>36101</strong><br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />GRATIS Konsultasi KPR (BCA, PANIN, CIMB, BNI, Danamon, Permata, dll)<br /><br />SPEK :<br /><br />- LUAS TANAH :26 M2<br />- Luas Bangunan : 26 M2<br />KT 1<br />KM 1<br /><br />HARGA : 540 JT<br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />Segera hubungi kami untuk membantu dan mendapatkan informasi mengenai properti di area ini (Listing HOT, harga pasaran dan lokasi terbaik)<br /><br />SHR,SHR,RW</p>",
-                        product_short_description = "<p>bbb aa</p>",
-                        min_order = 1,
-                        etalase = "rumah",
                         currency = "IDR",
                         condition = "NEW",
                         price = 1231,
-                        original_price = 1231,
                         stock = 33,
                         weight = 99,
-                        weight_unit = "gram",
-                        timestamp = 512312312311,
                         rating_star = 4,
-                        comment_count = 12,
-                        review_count = 3,
-                        transaction_success = 2,
-                        transaction_reject = 1,
                         sales = 2,
                         view = 200,
-                        like = 1,
                         wholesales = new List<Wholesales>
                         {
                             new Wholesales
@@ -83,15 +58,102 @@ namespace Stokpas.Models
                                 unit_price = 1800
                             }
                         },
-                        logistics = new List<Logistics>
-                        {
-                            new Logistics
+                        images = new List<Images> {
+                            new Images
                             {
-                                logistic_name="wahana"
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/05/Sunnah-Nabi-pada-Idhul-Fitri-1280x640.jpg"
                             },
-                            new Logistics
+                            new Images
                             {
-                                logistic_name="jne"
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/05/Puasa-Ayyamul-Bidh-1280x640.jpg"
+                            },
+                            new Images
+                            {
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/04/Orang-yang-Diperbolehkan-Tidak-Puasa-dan-Ketentuan-Membayar-Hutang-Puasa-821x640.jpg"
+                            },
+                            new Images
+                            {
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2018/10/nama-bayi-perempuan.jpg"
+                            }
+                        },                      
+                        
+                        tp_product = new TpProducts
+                        {
+                            shop_id = 2312312,
+                            product_url = "tpde.com/bla",
+                            status = 1,
+                            product_short_description = "<p>bbb aa</p>",
+                            min_order = 1,
+                            etalase = "rumah",
+                            weight_unit = "gram",
+                            review_count = 3,
+                            transaction_success = 2,
+                            transaction_reject = 1,
+                            tp_category = new TpCategorys
+                            {
+                                category_name = "rumah tangga",
+                                parent_id = 0
+                            },
+                        },
+                        sh_product = new ShProducts
+                        {
+                            shop_id = 6984141,
+                            product_url = "shope.com/bla",
+                            status = 1,
+                            original_price = 1231,
+                            comment_count = 12,
+                            like=90,
+                            logistics = new List<Logistics>
+                            {
+                                new Logistics
+                                {
+                                    logistic_name="wahana"
+                                },
+                                new Logistics
+                                {
+                                    logistic_name="jne"
+                                }
+                            },
+                            sh_category = new ShCategorys
+                            {
+                                category_name = "rumah tangga",
+                                parent_id = 0
+                            }
+                        },
+                        created_on = DateTime.Now,
+                        created_by = "011231asfsdfasdf",
+                    },
+                    new Products
+                    {
+                        product_sku = 3325,
+                        product_name = "rotan",
+                        product_description = "<p>Kode Listing pinrumah.com :&nbsp;<strong>36101</strong><br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />GRATIS Konsultasi KPR (BCA, PANIN, CIMB, BNI, Danamon, Permata, dll)<br /><br />SPEK :<br /><br />- LUAS TANAH :26 M2<br />- Luas Bangunan : 26 M2<br />KT 1<br />KM 1<br /><br />HARGA : 540 JT<br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />Segera hubungi kami untuk membantu dan mendapatkan informasi mengenai properti di area ini (Listing HOT, harga pasaran dan lokasi terbaik)<br /><br />SHR,SHR,RW</p>",
+                        currency = "IDR",
+                        condition = "NEW",
+                        price = 20000,
+                        stock = 133,
+                        weight = 10,
+                        rating_star = 4,
+                        sales = 2,
+                        view = 200,
+                        wholesales = new List<Wholesales>
+                        {
+                            new Wholesales
+                            {
+                                min = 3,
+                                max = 10,
+                                unit_price = 2000
+                            },
+                            new Wholesales
+                            {
+                                min = 11,
+                                max = 20,
+                                unit_price = 1900
+                            },
+                            new Wholesales
+                            {
+                                min = 21,
+                                unit_price = 1800
                             }
                         },
                         images = new List<Images> {
@@ -112,168 +174,62 @@ namespace Stokpas.Models
                                 image_file_path="https://pondokislam.com/wp-content/uploads/2018/10/nama-bayi-perempuan.jpg"
                             }
                         },
-                        tp_category = new TpCategorys
+
+                        tp_product = new TpProducts
                         {
-                            category_name = "baju",
-                            parent_id = 0
+                            shop_id = 3312312,
+                            product_url = "tpde.com/blab",
+                            status = 1,
+                            product_short_description = "<p>bbb aa</p>",
+                            min_order = 1,
+                            etalase = "rumah",
+                            weight_unit = "gram",
+                            review_count = 3,
+                            transaction_success = 2,
+                            transaction_reject = 1,
+                            tp_category = new TpCategorys
+                            {
+                                category_name = "kerajinan",
+                                parent_id = 0
+                            },
                         },
-                        sh_category = new ShCategorys
+                        sh_product = new ShProducts
                         {
-                            category_name = "pakaian",
-                            parent_id = 0
+                            shop_id = 7984141,
+                            product_url = "shope.com/blab",
+                            status = 1,
+                            original_price = 1231,
+                            comment_count = 12,
+                            like=8,
+                            logistics = new List<Logistics>
+                            {
+                                new Logistics
+                                {
+                                    logistic_name="jnt"
+                                }
+                            },
+                            sh_category = new ShCategorys
+                            {
+                                category_name = "kesenian",
+                                parent_id = 0
+                            }
                         },
                         created_on = DateTime.Now,
                         created_by = "011231asfsdfasdf",
                     },
                     new Products
                     {
-                        shop_id = 2312312,
-                        product_url = "bbc.com",
-                        status = 1,
-                        product_sku = 2231,
-                        product_name = "rotan",
+                        product_sku = 5231,
+                        product_name = "sepatu",
                         product_description = "<p>Kode Listing pinrumah.com :&nbsp;<strong>36101</strong><br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />GRATIS Konsultasi KPR (BCA, PANIN, CIMB, BNI, Danamon, Permata, dll)<br /><br />SPEK :<br /><br />- LUAS TANAH :26 M2<br />- Luas Bangunan : 26 M2<br />KT 1<br />KM 1<br /><br />HARGA : 540 JT<br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />Segera hubungi kami untuk membantu dan mendapatkan informasi mengenai properti di area ini (Listing HOT, harga pasaran dan lokasi terbaik)<br /><br />SHR,SHR,RW</p>",
-                        product_short_description = "<p>bbb aa</p>",
-                        min_order = 1,
-                        etalase = "rumah",
                         currency = "IDR",
                         condition = "NEW",
-                        price = 30000,
-                        original_price = 1231,
-                        stock = 10,
+                        price = 65800,
+                        stock = 33,
                         weight = 99,
-                        weight_unit = "gram",
-                        timestamp = 512312312311,
                         rating_star = 4,
-                        comment_count = 12,
-                        review_count = 3,
-                        transaction_success = 2,
-                        transaction_reject = 1,
                         sales = 2,
                         view = 200,
-                        like = 1,
-                        logistics = new List<Logistics>
-                        {
-                            new Logistics
-                            {
-                                logistic_name="jnt"
-                            },
-                            new Logistics
-                            {
-                                logistic_name="jne"
-                            }
-                        },
-                        images = new List<Images> {
-                            new Images
-                            {
-                                image_file_path="https://pondokislam.com/wp-content/uploads/2018/10/nama-bayi-laki-laki-islami.jpg"
-                            },
-                            new Images
-                            {
-                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/05/Macam-Macam-Zakat.jpg"
-                            }
-                        },
-                        tp_category = new TpCategorys
-                        {
-                            category_name = "baju",
-                            parent_id = 0
-                        },
-                        sh_category = new ShCategorys
-                        {
-                            category_name = "pakaian",
-                            parent_id = 0
-                        },
-                        created_on = DateTime.Now,
-                        created_by = "011231asfsdfasdf",
-                    },
-                    new Products
-                    {
-                        shop_id = 2312312,
-                        product_url = "ccc.com",
-                        status = 1,
-                        product_sku = 1231,
-                        product_name = "botol minum",
-                        product_description = "<p>Kode Listing pinrumah.com :&nbsp;<strong>36101</strong><br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />GRATIS Konsultasi KPR (BCA, PANIN, CIMB, BNI, Danamon, Permata, dll)<br /><br />SPEK :<br /><br />- LUAS TANAH :26 M2<br />- Luas Bangunan : 26 M2<br />KT 1<br />KM 1<br /><br />HARGA : 540 JT<br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />Segera hubungi kami untuk membantu dan mendapatkan informasi mengenai properti di area ini (Listing HOT, harga pasaran dan lokasi terbaik)<br /><br />SHR,SHR,RW</p>",
-                        product_short_description = "<p>bbb aa</p>",
-                        min_order = 1,
-                        etalase = "rumah",
-                        currency = "IDR",
-                        condition = "NEW",
-                        price = 65000,
-                        original_price = 1231,
-                        stock = 3,
-                        weight = 99,
-                        weight_unit = "gram",
-                        timestamp = 512312312311,
-                        rating_star = 4,
-                        comment_count = 12,
-                        review_count = 3,
-                        transaction_success = 2,
-                        transaction_reject = 1,
-                        sales = 2,
-                        view = 200,
-                        like = 1,
-                        logistics = new List<Logistics>
-                        {
-                            new Logistics
-                            {
-                                logistic_name="sicepat"
-                            },
-                            new Logistics
-                            {
-                                logistic_name="jnt"
-                            }
-                        },
-                        images = new List<Images> {
-                            new Images
-                            {
-                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/05/6-Macam-Ifthar-Di-Bulan-Ramadhan-820x640.jpg"
-                            },
-                            new Images
-                            {
-                                image_file_path="https://pondokislam.com/wp-content/uploads/2018/10/rukun-iman-dan-rukun-islam.jpg"
-                            }
-                        },
-                        tp_category = new TpCategorys
-                        {
-                            category_name = "baju",
-                            parent_id = 0
-                        },
-                        sh_category = new ShCategorys
-                        {
-                            category_name = "pakaian",
-                            parent_id = 0
-                        },
-                        created_on = DateTime.Now,
-                        created_by = "011231asfsdfasdf",
-                    },
-                    new Products
-                    {
-                        shop_id = 2312312,
-                        product_url = "dbc.com",
-                        status = 1,
-                        product_sku = 1231,
-                        product_name = "speaker aktif",
-                        product_description = "<p>Kode Listing pinrumah.com :&nbsp;<strong>36101</strong><br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />GRATIS Konsultasi KPR (BCA, PANIN, CIMB, BNI, Danamon, Permata, dll)<br /><br />SPEK :<br /><br />- LUAS TANAH :26 M2<br />- Luas Bangunan : 26 M2<br />KT 1<br />KM 1<br /><br />HARGA : 540 JT<br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />Segera hubungi kami untuk membantu dan mendapatkan informasi mengenai properti di area ini (Listing HOT, harga pasaran dan lokasi terbaik)<br /><br />SHR,SHR,RW</p>",
-                        product_short_description = "<p>bbb aa</p>",
-                        min_order = 1,
-                        etalase = "rumah",
-                        currency = "IDR",
-                        condition = "NEW",
-                        price = 65000,
-                        original_price = 1231,
-                        stock = 133,
-                        weight = 99,
-                        weight_unit = "gram",
-                        timestamp = 512312312311,
-                        rating_star = 4,
-                        comment_count = 12,
-                        review_count = 3,
-                        transaction_success = 2,
-                        transaction_reject = 1,
-                        sales = 2,
-                        view = 200,
-                        like = 1,
                         wholesales = new List<Wholesales>
                         {
                             new Wholesales
@@ -294,36 +250,161 @@ namespace Stokpas.Models
                                 unit_price = 1800
                             }
                         },
-                        logistics = new List<Logistics>
-                        {
-                            new Logistics
+                        images = new List<Images> {
+                            new Images
                             {
-                                logistic_name="sicepat"
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/05/Sunnah-Nabi-pada-Idhul-Fitri-1280x640.jpg"
                             },
-                            new Logistics
+                            new Images
                             {
-                                logistic_name="jne"
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/05/Puasa-Ayyamul-Bidh-1280x640.jpg"
+                            },
+                            new Images
+                            {
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/04/Orang-yang-Diperbolehkan-Tidak-Puasa-dan-Ketentuan-Membayar-Hutang-Puasa-821x640.jpg"
+                            },
+                            new Images
+                            {
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2018/10/nama-bayi-perempuan.jpg"
+                            }
+                        },
+
+                        tp_product = new TpProducts
+                        {
+                            shop_id = 4312312,
+                            product_url = "tpde.com/blac",
+                            status = 1,
+                            product_short_description = "<p>bbb aa</p>",
+                            min_order = 1,
+                            etalase = "rumah",
+                            weight_unit = "gram",
+                            review_count = 3,
+                            transaction_success = 2,
+                            transaction_reject = 1,
+                            tp_category = new TpCategorys
+                            {
+                                category_name = "pakaian",
+                                parent_id = 0
+                            },
+                        },
+                        sh_product = new ShProducts
+                        {
+                            shop_id = 9984141,
+                            product_url = "shope.com/blac",
+                            status = 1,
+                            original_price = 1231,
+                            comment_count = 12,
+                            like=3,
+                            logistics = new List<Logistics>
+                            {
+                                new Logistics
+                                {
+                                    logistic_name="jne"
+                                }
+                            },
+                            sh_category = new ShCategorys
+                            {
+                                category_name = "aksesoris",
+                                parent_id = 0
+                            }
+                        },
+                        created_on = DateTime.Now,
+                        created_by = "011231asfsdfasdf",
+                    },
+                    new Products
+                    {
+                        product_sku = 6898,
+                        product_name = "tas",
+                        product_description = "<p>Kode Listing pinrumah.com :&nbsp;<strong>36101</strong><br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />GRATIS Konsultasi KPR (BCA, PANIN, CIMB, BNI, Danamon, Permata, dll)<br /><br />SPEK :<br /><br />- LUAS TANAH :26 M2<br />- Luas Bangunan : 26 M2<br />KT 1<br />KM 1<br /><br />HARGA : 540 JT<br /><br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br />(HUB: EDWARD 081280069222)<br /><br />Segera hubungi kami untuk membantu dan mendapatkan informasi mengenai properti di area ini (Listing HOT, harga pasaran dan lokasi terbaik)<br /><br />SHR,SHR,RW</p>",
+                        currency = "IDR",
+                        condition = "NEW",
+                        price = 1231,
+                        stock = 33,
+                        weight = 99,
+                        rating_star = 4,
+                        sales = 2,
+                        view = 200,
+                        wholesales = new List<Wholesales>
+                        {
+                            new Wholesales
+                            {
+                                min = 3,
+                                max = 10,
+                                unit_price = 2000
+                            },
+                            new Wholesales
+                            {
+                                min = 11,
+                                max = 20,
+                                unit_price = 1900
+                            },
+                            new Wholesales
+                            {
+                                min = 21,
+                                unit_price = 1800
                             }
                         },
                         images = new List<Images> {
                             new Images
                             {
-                                image_file_path="https://pondokislam.com/wp-content/uploads/2019/03/Kisah-Nabi-Ilyas-1.jpg"
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/05/Sunnah-Nabi-pada-Idhul-Fitri-1280x640.jpg"
                             },
                             new Images
                             {
-                                image_file_path="https://pondokislam.com/wp-content/uploads/2018/10/tanda-tanda-kiamat-1181x640.jpg"
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/05/Puasa-Ayyamul-Bidh-1280x640.jpg"
+                            },
+                            new Images
+                            {
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2020/04/Orang-yang-Diperbolehkan-Tidak-Puasa-dan-Ketentuan-Membayar-Hutang-Puasa-821x640.jpg"
+                            },
+                            new Images
+                            {
+                                image_file_path="https://pondokislam.com/wp-content/uploads/2018/10/nama-bayi-perempuan.jpg"
                             }
                         },
-                        tp_category = new TpCategorys
+
+                        tp_product = new TpProducts
                         {
-                            category_name = "baju",
-                            parent_id = 0
+                            shop_id = 4312312,
+                            product_url = "tpde.com/blad",
+                            status = 1,
+                            product_short_description = "<p>bbb aa</p>",
+                            min_order = 1,
+                            etalase = "rumah",
+                            weight_unit = "gram",
+                            review_count = 3,
+                            transaction_success = 2,
+                            transaction_reject = 1,
+                            tp_category = new TpCategorys
+                            {
+                                category_name = "rumah tangga",
+                                parent_id = 0
+                            },
                         },
-                        sh_category = new ShCategorys
+                        sh_product = new ShProducts
                         {
-                            category_name = "pakaian",
-                            parent_id = 0
+                            shop_id = 9084141,
+                            product_url = "shope.com/blad",
+                            status = 1,
+                            original_price = 1231,
+                            comment_count = 12,
+                            like=131,
+                            logistics = new List<Logistics>
+                            {
+                                new Logistics
+                                {
+                                    logistic_name="sicepat"
+                                },
+                                new Logistics
+                                {
+                                    logistic_name="jne"
+                                }
+                            },
+                            sh_category = new ShCategorys
+                            {
+                                category_name = "rumah tangga",
+                                parent_id = 0
+                            }
                         },
                         created_on = DateTime.Now,
                         created_by = "011231asfsdfasdf",

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Stokpas.Data;
@@ -9,9 +10,10 @@ using Stokpas.Data;
 namespace Stokpas.Migrations
 {
     [DbContext(typeof(StokpasContext))]
-    partial class StokpasContextModelSnapshot : ModelSnapshot
+    [Migration("20200623142056_InitialCreate3")]
+    partial class InitialCreate3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,6 +150,9 @@ namespace Stokpas.Migrations
                     b.Property<bool>("has_variation")
                         .HasColumnType("boolean");
 
+                    b.Property<int>("like")
+                        .HasColumnType("integer");
+
                     b.Property<string>("modified_by")
                         .HasColumnType("text");
 
@@ -241,9 +246,6 @@ namespace Stokpas.Migrations
 
                     b.Property<bool>("is_pre_order")
                         .HasColumnType("boolean");
-
-                    b.Property<int>("like")
-                        .HasColumnType("integer");
 
                     b.Property<string>("modified_by")
                         .HasColumnType("text");

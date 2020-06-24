@@ -10,24 +10,24 @@ using Stokpas.Models;
 
 namespace Stokpas.Controllers
 {
-    public class ProductController : Controller
+    public class ProductsController : Controller
     {
         private readonly StokpasContext _context;
 
-        public ProductController(StokpasContext context)
+        public ProductsController(StokpasContext context)
         {
             _context = context;
         }
 
-        // GET: Product
+        // GET: Products
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Product
+            return View(await _context.Products
                 .Include(s=>s.images)
                 .ToListAsync());
         }
 
-        // GET: Product/Details/5
+        // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,44 +35,40 @@ namespace Stokpas.Controllers
                 return NotFound();
             }
 
-            var productModel = await _context.Product
+            var products = await _context.Products
                 .Include(s => s.images)
-                .Include(s => s.logistics)
-                .Include(s => s.wholesales)
-                .Include(s => s.tp_category)
-                .Include(s => s.sh_category)
                 .FirstOrDefaultAsync(m => m.product_id == id);
-            if (productModel == null)
+            if (products == null)
             {
                 return NotFound();
             }
 
-            return View(productModel);
+            return View(products);
         }
 
-        // GET: Product/Create
+        // GET: Products/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Product/Create
+        // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("product_id,shop_id,product_url,status,product_sku,product_name,product_description,product_short_description,min_order,etalase,is_must_insurance,is_free_return,is_eligible_cod,currency,condition,has_variation,price,original_price,stock,weight,weight_unit,timestamp,rating_star,comment_count,review_count,transaction_success,transaction_reject,sales,view,like,package_length,package_width,package_height,is_pre_order,days_to_ship,discount_id,warning,created_on,created_by,modified_on,modified_by,request_id")] Products productModel)
+        public async Task<IActionResult> Create([Bind("product_id,product_sku,product_name,product_description,currency,condition,has_variation,price,stock,weight,rating_star,sales,view,like,days_to_ship,created_on,created_by,modified_on,modified_by")] Products products)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(productModel);
+                _context.Add(products);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(productModel);
+            return View(products);
         }
 
-        // GET: Product/Edit/5
+        // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,22 +76,22 @@ namespace Stokpas.Controllers
                 return NotFound();
             }
 
-            var productModel = await _context.Product.FindAsync(id);
-            if (productModel == null)
+            var products = await _context.Products.FindAsync(id);
+            if (products == null)
             {
                 return NotFound();
             }
-            return View(productModel);
+            return View(products);
         }
 
-        // POST: Product/Edit/5
+        // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("product_id,shop_id,product_url,status,product_sku,product_name,product_description,product_short_description,min_order,etalase,is_must_insurance,is_free_return,is_eligible_cod,currency,condition,has_variation,price,original_price,stock,weight,weight_unit,timestamp,rating_star,comment_count,review_count,transaction_success,transaction_reject,sales,view,like,package_length,package_width,package_height,is_pre_order,days_to_ship,discount_id,warning,created_on,created_by,modified_on,modified_by,request_id")] Products productModel)
+        public async Task<IActionResult> Edit(int id, [Bind("product_id,product_sku,product_name,product_description,currency,condition,has_variation,price,stock,weight,rating_star,sales,view,like,days_to_ship,created_on,created_by,modified_on,modified_by")] Products products)
         {
-            if (id != productModel.product_id)
+            if (id != products.product_id)
             {
                 return NotFound();
             }
@@ -104,12 +100,12 @@ namespace Stokpas.Controllers
             {
                 try
                 {
-                    _context.Update(productModel);
+                    _context.Update(products);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductModelExists(productModel.product_id))
+                    if (!ProductsExists(products.product_id))
                     {
                         return NotFound();
                     }
@@ -120,10 +116,10 @@ namespace Stokpas.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(productModel);
+            return View(products);
         }
 
-        // GET: Product/Delete/5
+        // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,30 +127,30 @@ namespace Stokpas.Controllers
                 return NotFound();
             }
 
-            var productModel = await _context.Product
+            var products = await _context.Products
                 .FirstOrDefaultAsync(m => m.product_id == id);
-            if (productModel == null)
+            if (products == null)
             {
                 return NotFound();
             }
 
-            return View(productModel);
+            return View(products);
         }
 
-        // POST: Product/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var productModel = await _context.Product.FindAsync(id);
-            _context.Product.Remove(productModel);
+            var products = await _context.Products.FindAsync(id);
+            _context.Products.Remove(products);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductModelExists(int id)
+        private bool ProductsExists(int id)
         {
-            return _context.Product.Any(e => e.product_id == id);
+            return _context.Products.Any(e => e.product_id == id);
         }
     }
 }

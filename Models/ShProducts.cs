@@ -23,8 +23,15 @@ namespace Stokpas.Models
         public int package_width { get; set; }
         public int package_height { get; set; }
         public bool is_pre_order { get; set; } = false;
+        public int like { get; set; }
         public int discount_id { get; set; }
         public string warning { get; set; }
+           
+        public DateTime created_on { get; set; }
+        public string created_by { get; set; }
+        public DateTime modified_on { get; set; }
+        public string modified_by { get; set; }
+
         public ICollection<Attributes> attributes { get; set; }
         [Required]
         public ICollection<Logistics> logistics { get; set; }
@@ -32,11 +39,6 @@ namespace Stokpas.Models
         [Required]
         public ICollection<Images> images { get; set; }
 
-        [Required]
-        public virtual ShCategorys category { get; set; }
-        public DateTime created_on { get; set; }
-        public string created_by { get; set; }
-        public DateTime modified_on { get; set; }
-        public string modified_by { get; set; }
+        public virtual ShCategorys sh_category { get; set; }
     }
 }

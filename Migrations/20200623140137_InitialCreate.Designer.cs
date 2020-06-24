@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Stokpas.Data;
@@ -9,9 +10,10 @@ using Stokpas.Data;
 namespace Stokpas.Migrations
 {
     [DbContext(typeof(StokpasContext))]
-    partial class StokpasContextModelSnapshot : ModelSnapshot
+    [Migration("20200623140137_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,6 +150,9 @@ namespace Stokpas.Migrations
                     b.Property<bool>("has_variation")
                         .HasColumnType("boolean");
 
+                    b.Property<int>("like")
+                        .HasColumnType("integer");
+
                     b.Property<string>("modified_by")
                         .HasColumnType("text");
 
@@ -215,7 +220,12 @@ namespace Stokpas.Migrations
                     b.Property<int>("parent_id")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("sh_product_id")
+                        .HasColumnType("integer");
+
                     b.HasKey("sh_category_id");
+
+                    b.HasIndex("sh_product_id");
 
                     b.ToTable("ShCategorys");
                 });
@@ -242,9 +252,6 @@ namespace Stokpas.Migrations
                     b.Property<bool>("is_pre_order")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("like")
-                        .HasColumnType("integer");
-
                     b.Property<string>("modified_by")
                         .HasColumnType("text");
 
@@ -266,9 +273,6 @@ namespace Stokpas.Migrations
                     b.Property<string>("product_url")
                         .HasColumnType("text");
 
-                    b.Property<int?>("sh_category_id")
-                        .HasColumnType("integer");
-
                     b.Property<int>("shop_id")
                         .HasColumnType("integer");
 
@@ -279,8 +283,6 @@ namespace Stokpas.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("sh_product_id");
-
-                    b.HasIndex("sh_category_id");
 
                     b.ToTable("ShProducts");
                 });
@@ -378,9 +380,6 @@ namespace Stokpas.Migrations
                     b.Property<int>("status")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("tp_category_id")
-                        .HasColumnType("integer");
-
                     b.Property<int>("transaction_reject")
                         .HasColumnType("integer");
 
@@ -392,8 +391,6 @@ namespace Stokpas.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("tp_product_id");
-
-                    b.HasIndex("tp_category_id");
 
                     b.ToTable("TpProducts");
                 });
@@ -555,11 +552,11 @@ namespace Stokpas.Migrations
                         .HasForeignKey("tp_product_id");
                 });
 
-            modelBuilder.Entity("Stokpas.Models.ShProducts", b =>
+            modelBuilder.Entity("Stokpas.Models.ShCategorys", b =>
                 {
-                    b.HasOne("Stokpas.Models.ShCategorys", "sh_category")
+                    b.HasOne("Stokpas.Models.ShProducts", "sh_product")
                         .WithMany()
-                        .HasForeignKey("sh_category_id");
+                        .HasForeignKey("sh_product_id");
                 });
 
             modelBuilder.Entity("Stokpas.Models.TierVariants", b =>
@@ -567,13 +564,6 @@ namespace Stokpas.Migrations
                     b.HasOne("Stokpas.Models.Products", null)
                         .WithMany("tier_variant")
                         .HasForeignKey("Productsproduct_id");
-                });
-
-            modelBuilder.Entity("Stokpas.Models.TpProducts", b =>
-                {
-                    b.HasOne("Stokpas.Models.TpCategorys", "tp_category")
-                        .WithMany()
-                        .HasForeignKey("tp_category_id");
                 });
 
             modelBuilder.Entity("Stokpas.Models.VariantModel", b =>

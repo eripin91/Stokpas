@@ -28,6 +28,5 @@ namespace Stokpas.Models
                 internal_option = String.Join(";", value);
             }
         }
-        public string request_id { get; set; }
     }
 }

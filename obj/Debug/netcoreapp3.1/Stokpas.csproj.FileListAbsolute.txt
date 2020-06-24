@@ -179,8 +179,8 @@ C:\Users\ERIPIN\source\repos\stokpas\bin\Debug\netcoreapp3.1\runtimes\win-x86\na
 C:\Users\ERIPIN\source\repos\stokpas\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\ERIPIN\source\repos\stokpas\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\ERIPIN\source\repos\stokpas\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Product\Create.cshtml.g.cs
-C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Product\Delete.cshtml.g.cs
-C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Product\Details.cshtml.g.cs
-C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Product\Edit.cshtml.g.cs
-C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
+C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Products\Create.cshtml.g.cs
+C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Products\Delete.cshtml.g.cs
+C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Products\Details.cshtml.g.cs
+C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Products\Edit.cshtml.g.cs
+C:\Users\ERIPIN\source\repos\stokpas\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs
