@@ -13,6 +13,7 @@ namespace Stokpas.Models
         public int tp_category_id { get; set; }
         public int parent_id { get; set; } = 0;
 
+        [Display(Name = "Nama kategori")]
         [Required]
         public string category_name { get; set; }
     }

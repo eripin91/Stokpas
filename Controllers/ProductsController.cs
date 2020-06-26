@@ -37,6 +37,12 @@ namespace Stokpas.Controllers
 
             var products = await _context.Products
                 .Include(s => s.images)
+                .Include(s=>s.wholesales)
+                .Include(s => s.tp_product)
+                .Include(s => s.tp_product.tp_category)
+                .Include(s => s.sh_product)
+                .Include(s => s.sh_product.sh_category)
+                .Include(s => s.sh_product.logistics)
                 .FirstOrDefaultAsync(m => m.product_id == id);
             if (products == null)
             {

@@ -50,25 +50,13 @@
                 @Html.DisplayNameFor(model => model.product_description)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.product_description)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.currency)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.currency)
+                @Html.Raw(Model.product_description.Replace("\r\n", "<br />"))
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.condition)
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.condition)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.has_variation)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.has_variation)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.price)
@@ -113,10 +101,46 @@
                 @Html.DisplayFor(model => model.days_to_ship)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.created_on)
+                @Html.DisplayNameFor(model => model.wholesales)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.created_on)
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.wholesales.ElementAt(0).min)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.wholesales.ElementAt(0).max)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.wholesales.ElementAt(0).unit_price)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.wholesales.OrderBy(s => s.min))
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.min)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.max)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.unit_price)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Created_on)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Created_on)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.created_by)
@@ -125,10 +149,10 @@
                 @Html.DisplayFor(model => model.created_by)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.modified_on)
+                @Html.DisplayNameFor(model => model.Modified_on)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.modified_on)
+                @Html.DisplayFor(model => model.Modified_on)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.modified_by)
@@ -136,6 +160,160 @@
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.modified_by)
             </dd>
+            <dt class="col-sm-12">&nbsp;</dt>
+
+            <dt class="col-sm-12 text-center">
+                Tokopedia
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.tp_category.category_name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.tp_category.category_name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.product_url)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.product_url)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.status)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.status)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.product_short_description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.Raw(Model.tp_product.product_short_description.Replace("\r\n", "<br />"))
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.min_order)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.min_order)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.etalase)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.etalase)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.min_order)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.min_order)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.is_must_insurance)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.is_must_insurance)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.is_free_return)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.is_free_return)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.is_eligible_cod)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.is_eligible_cod)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.review_count)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.review_count)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.transaction_success)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.transaction_success)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.tp_product.transaction_reject)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.tp_product.transaction_reject)
+            </dd>
+
+            <dt class="col-sm-12 text-center">
+                Shopee
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.sh_category.category_name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.sh_category.category_name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.product_url)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.product_url)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.status)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.status)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.original_price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.original_price)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.comment_count)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.comment_count)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.package_length)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.package_length)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.package_width)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.package_width)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.package_height)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.package_height)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.is_pre_order)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.is_pre_order)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.like)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sh_product.like)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sh_product.logistics)
+            </dt>
+            <dd class="col-sm-10">
+                @string.Join(",", Model.sh_product.logistics.Select(s => s.logistic_name))
+            </dd>
+
         </dl>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.product_id">Edit</a> |
