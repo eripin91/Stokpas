@@ -52,10 +52,9 @@ namespace Stokpas.Models
         public ICollection<Attributes> attributes { get; set; }
 
         [Display(Name = "Logistik")]
-        [Required]
-        public ICollection<Logistics> logistics { get; set; }
-
-        [Required]
+        
+        public IList<Logistics> logistics { get; set; }
+        
         public ICollection<Images> images { get; set; }
 
         public virtual ShCategorys sh_category { get; set; }

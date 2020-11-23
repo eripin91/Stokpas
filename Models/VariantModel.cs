@@ -28,5 +28,6 @@ namespace Stokpas.Models
         }
         public float original_price { get; set; }
         public int discount_id { get; set; }
+        public Products products { get; set; }
     }
 }

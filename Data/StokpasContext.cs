@@ -27,5 +27,15 @@ namespace Stokpas.Data
         public DbSet<VariantOptions> VariantOptions { get; set; }
         public DbSet<Warehouses> Warehouses { get; set; }
         public DbSet<Wholesales> Wholesales { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Products>()
+                .HasMany(e => e.images)
+                .WithOne(e => e.products)
+                .OnDelete(DeleteBehavior.ClientCascade);
+
+
+        }
     }
 }

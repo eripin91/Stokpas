@@ -102,8 +102,7 @@ namespace Stokpas.Models
         [Display(Name = "Grosir")]
         public ICollection<Wholesales> wholesales { get; set; }
 
-        [Display(Name = "Gambar")]
-        [Required]
+        [Display(Name = "Gambar")]        
         public ICollection<Images> images { get; set; }
         public ICollection<TierVariants> tier_variant { get; set; }
         public ICollection<VariantModel> variant { get; set; }

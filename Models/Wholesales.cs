@@ -14,5 +14,6 @@ namespace Stokpas.Models
         public int max { get; set; }
         public float unit_price { get; set; }
 
+        public Products products { get; set; }
     }
 }

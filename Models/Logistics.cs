@@ -17,5 +17,7 @@ namespace Stokpas.Models
         public float shipping_fee { get; set; }
 
         public bool is_free { get; set; } = false;
+
+        public virtual ShProducts sh_product { get; set; }
     }
 }

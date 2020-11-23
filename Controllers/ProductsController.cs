@@ -82,7 +82,15 @@ namespace Stokpas.Controllers
                 return NotFound();
             }
 
-            var products = await _context.Products.FindAsync(id);
+            var products = await _context.Products
+                .Include(s => s.images)
+                .Include(s => s.wholesales)
+                .Include(s => s.tp_product)
+                .Include(s => s.tp_product.tp_category)
+                .Include(s => s.sh_product)
+                .Include(s => s.sh_product.sh_category)
+                .Include(s => s.sh_product.logistics)
+                .FirstOrDefaultAsync(m => m.product_id == id);
             if (products == null)
             {
                 return NotFound();
@@ -95,7 +103,7 @@ namespace Stokpas.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("product_id,product_sku,product_name,product_description,currency,condition,has_variation,price,stock,weight,rating_star,sales,view,like,days_to_ship,created_on,created_by,modified_on,modified_by")] Products products)
+        public async Task<IActionResult> Edit(int id, Products products)
         {
             if (id != products.product_id)
             {
@@ -134,6 +142,13 @@ namespace Stokpas.Controllers
             }
 
             var products = await _context.Products
+                .Include(s => s.images)
+                .Include(s => s.wholesales)
+                .Include(s => s.tp_product)
+                .Include(s => s.tp_product.tp_category)
+                .Include(s => s.sh_product)
+                .Include(s => s.sh_product.sh_category)
+                .Include(s => s.sh_product.logistics)
                 .FirstOrDefaultAsync(m => m.product_id == id);
             if (products == null)
             {
@@ -148,7 +163,16 @@ namespace Stokpas.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var products = await _context.Products.FindAsync(id);
+            var products = await _context.Products
+                .Include(s => s.images)
+                .Include(s => s.wholesales)
+                .Include(s => s.tp_product)
+                .Include(s => s.tp_product.tp_category)
+                .Include(s => s.sh_product)
+                .Include(s => s.sh_product.sh_category)
+                .Include(s => s.sh_product.logistics)
+                .FirstOrDefaultAsync(m => m.product_id == id);
+
             _context.Products.Remove(products);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

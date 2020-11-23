@@ -43,7 +43,7 @@ namespace Stokpas.Models
 
         [Display(Name = "Satuan berat")]
         [Required]
-        public string weight_unit { get; set; }
+        public string weight_unit { get; set; } = "gram";
 
         [Display(Name = "Jumlah ulasan")]
         public int review_count { get; set; }
@@ -61,8 +61,7 @@ namespace Stokpas.Models
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime modified_on { get; set; }
         public string modified_by { get; set; }
-
-        [Required]
+        
         public ICollection<Images> images { get; set; }
         public ICollection<Warehouses> warehouses { get; set; }        
         public virtual TpCategorys tp_category { get; set; }

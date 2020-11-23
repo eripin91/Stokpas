@@ -15,5 +15,6 @@ namespace Stokpas.Models
         public string tier_variant_name { get; set; }
         public int position { get; set; }
         public ICollection<VariantOptions> options { get; set; }
+        public Products products { get; set; }
     }
 }
